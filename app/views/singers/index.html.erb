@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cantantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @singers.each do |singer| %>
+      <tr>
+        <td><%= singer.name %></td>
+        <td><%= singer.description %></td>
+        <td><%= link_to 'Ver', singer %></td>
+        <td><%= link_to 'Editar', edit_singer_path(singer) %></td>
+        <td><%= link_to 'Borrar', singer, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+        <td><%= link_to 'Ver discos', disks_path(id: singer.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Atras', root_path %>
+<%= link_to 'Nuevo cantante', new_singer_path %>

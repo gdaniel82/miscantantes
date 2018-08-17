@@ -1,0 +1,33 @@
+<%= form_with(model: disk, local: true) do |form| %>
+  <% if disk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(disk.errors.count, "error") %> prohibited this disk from being saved:</h2>
+
+      <ul>
+      <% disk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :singer_id %>
+    <%= form.select :singer_id, options_from_collection_for_select(@list_singers, :id, :name),
+      {}, { class: "", "data-placeholder" => "Selecione la, o las posiciones" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
