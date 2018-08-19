@@ -7,13 +7,13 @@
   <% end %>
 </h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Singer</th>
       <th>Name</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="3" style=" width: 20%"></th>
     </tr>
   </thead>
 
@@ -23,14 +23,14 @@
         <td><%= disk.singer.name %></td>
         <td><%= disk.name %></td>
         <td><%= disk.description %></td>
-        <td><%= link_to 'Show', disk %></td>
-        <td><%= link_to 'Edit', edit_disk_path(disk) %></td>
-        <td><%= link_to 'Destroy', disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to icon('far', 'eye', class: 'strong'), disk, class: "btn btn-primary" %></td>
+        <td><%= link_to icon('far', 'edit', class: 'strong'), edit_disk_path(disk), class: "btn btn-success" %></td>
+        <td><%= link_to icon('fas', 'compact-disc', class: 'strong'), disk, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'Atras', root_path %>
-<%= link_to 'New Disk', new_disk_path %>
+<%= link_to  icon('fas', 'arrow-left') + ' Atras', root_path,  class: "btn btn-info" %>
+<%= link_to icon('fas', 'plus') + ' New Disk', new_disk_path,  class: "btn btn-info" %>
